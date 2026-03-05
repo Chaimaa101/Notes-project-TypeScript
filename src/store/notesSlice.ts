@@ -23,9 +23,12 @@ const notesSlice = createSlice({
       note.markdown = action.payload.markdown
       note.tagIds = action.payload.tagIds
      }
+    },
+    deleteNote: (state, action: PayloadAction<string>) => {
+      return state.filter(note => note.id !== action.payload)
     }
   }
 })
 
-export const { addNote ,editNote} = notesSlice.actions
+export const { addNote ,editNote ,deleteNote} = notesSlice.actions
 export default notesSlice.reducer

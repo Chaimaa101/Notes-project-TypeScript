@@ -3,9 +3,12 @@ import { useNote } from './NoteLayout'
 import { Badge, Button, Col, Row, Stack } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ReactMarkdown from "react-markdown"
+import { deleteNote } from './store/NotesSlice'
+import { useDispatch } from 'react-redux'
 
 export function Note() {
     const note = useNote()
+    const dispatch = useDispatch()
   return (
 
     <>
@@ -32,7 +35,9 @@ export function Note() {
                   <Link to={`/${note.id}/edit`}>
                     <Button variant="primary">Edit</Button>
                   </Link>
-                  <Button variant="outline-danger">Delete</Button>
+                  <Button variant="outline-danger" onClick={() =>{
+                    dispatch(deleteNote(note.id))
+                  }}>Delete</Button>
                   <Link to="..">
                   <Button variant="outline-secondary">Back</Button>
                   </Link>

@@ -1,4 +1,4 @@
-import  { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,20 +7,27 @@ import type { RootState } from "./store/store";
 import type { Tag } from "./App";
 import { selectNotesWithTags } from "./store/selectors";
 import NoteCard from "./NoteCard";
+import { EditTagsModal } from "./EditTgsModal";
 
 function NoteList() {
   const availableTags = useSelector((state: RootState) => state.tags);
   const [selectedTags, setselectedTags] = useState<Tag[]>([]);
   const [title, setTitle] = useState("");
-  const notes = useSelector(selectNotesWithTags)
+  const notes = useSelector(selectNotesWithTags);
+  const [show, setShow] = useState(false);
 
-  const filterNotes = useMemo(() =>{
-    return notes.filter(note =>{
-        return (title === "" || note.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())) && 
-        (selectedTags.length === 0 || selectedTags.every(tag => note.tags.some(noteTag => noteTag.id === tag.id)))
-    })
-
-  },[title,selectedTags , notes])
+  const filterNotes = useMemo(() => {
+    return notes.filter((note) => {
+      return (
+        (title === "" ||
+          note.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())) &&
+        (selectedTags.length === 0 ||
+          selectedTags.every((tag) =>
+            note.tags.some((noteTag) => noteTag.id === tag.id),
+          ))
+      );
+    });
+  }, [title, selectedTags, notes]);
 
   return (
     <>
@@ -33,7 +40,7 @@ function NoteList() {
             <Link to="/new">
               <Button variant="primary">Create</Button>
             </Link>
-            <Button variant="outline-secondary">Edit Tags</Button>
+            <Button variant="outline-secondary" onClick={() =>setShow(true)}>Edit Tags</Button>
           </Stack>
         </Col>
       </Row>
@@ -73,12 +80,13 @@ function NoteList() {
         </Row>
       </Form>
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
-        {filterNotes.map(note => (
+        {filterNotes.map((note) => (
           <Col key={note.id}>
-            <NoteCard id={note.id} title={note.title} tags={note.tags}/>
+            <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>
         ))}
       </Row>
+      <EditTagsModal show={show} handleClose={() => setShow(false)} />
     </>
   );
 }
