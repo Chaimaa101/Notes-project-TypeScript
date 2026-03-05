@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import type { RootState } from "./store/store";
 import NoteList from "./NoteList";
 import {NoteLayout} from "./NoteLayout";
+import { Note } from "./Note";
+import EditNote from "./EditNote";
 
 export type Note = {
   id: string;
@@ -45,9 +47,9 @@ function App() {
               />
             }
           />
-          <Route path="/:id">
-            <Route index element={<NoteLayout />} />
-            <Route path="edit" element={<h1>Edit</h1>} />
+          <Route path="/:id" element={<NoteLayout />}>
+            <Route index element={<Note  />} />
+            <Route path="edit" element={<EditNote />} />
           </Route>
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>

@@ -14,9 +14,18 @@ const notesSlice = createSlice({
         id: uuidV4(),
         ...action.payload
       })
+    },
+    editNote: (state, action: PayloadAction<{id:string,title: string, markdown: string, tagIds: string[]}>) => {
+     const note = state.find(n => n.id === action.payload.id)
+
+     if(note){
+      note.title = action.payload.title
+      note.markdown = action.payload.markdown
+      note.tagIds = action.payload.tagIds
+     }
     }
   }
 })
 
-export const { addNote } = notesSlice.actions
+export const { addNote ,editNote} = notesSlice.actions
 export default notesSlice.reducer

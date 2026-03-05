@@ -1,13 +1,19 @@
-
-import NoteForm from './NoteForm'
-
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import NoteForm from "./NoteForm"
+import { addNote } from "./store/NotesSlice"
 
 function NewNote() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   return (
-    <>
-    <h1 className='mb-4'>New Note</h1>
-      <NoteForm />
-    </>
+    <NoteForm
+      onSubmit={(data) => {
+        dispatch(addNote(data))
+        navigate("..")
+      }}
+    />
   )
 }
 
