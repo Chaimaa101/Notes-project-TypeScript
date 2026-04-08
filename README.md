@@ -1,5 +1,11 @@
 # Notes App
 
+<h1 align="center">
+	<img
+		width="250"
+		alt="Invoicify"
+		src="public/logo.png">
+</h1>
 
 This is a **Notes web application** built with **React**, **TypeScript**, **Redux Toolkit**, and **Bootstrap/React-Bootstrap**, featuring **tag management**, **note creation/editing**, and **persistent storage** using **Redux-Persist**.
 
