@@ -6,7 +6,7 @@ import { type Tag } from "./App"
 import { v4 as uuidV4 } from "uuid"
 import { useDispatch, useSelector } from "react-redux"
 import type { RootState } from "./store/store"
-import { addTag } from "./store/TagsSlice"
+import { addTag } from "./store/tagsSlice"
 
 type NoteFormProps = {
   onSubmit: (data: {

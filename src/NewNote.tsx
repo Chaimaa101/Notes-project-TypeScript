@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import NoteForm from "./NoteForm"
-import { addNote } from "./store/NotesSlice"
+import { addNote } from "./store/notesSlice"
 
 function NewNote() {
   const dispatch = useDispatch()

@@ -1,7 +1,7 @@
 import { Button, Col, Form, Modal, Row, Stack } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "./store/store";
-import { deleteTag, editTag } from "./store/TagsSlice";
+import { deleteTag, editTag } from "./store/tagsSlice";
 import { useNavigate } from "react-router-dom";
 
 type EditTagsProps = {

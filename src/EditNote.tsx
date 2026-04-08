@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import type { RootState } from "./store/store"
 import NoteForm from "./NoteForm"
-import { editNote } from "./store/NotesSlice"
+import { editNote } from "./store/notesSlice"
 
 function EditNote() {
   const { id } = useParams()

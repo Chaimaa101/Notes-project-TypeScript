@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import notesReducer from "./NotesSlice"
-import tagsReducer from "./TagsSlice"
+import notesReducer from "./notesSlice"
+import tagsReducer from "./tagsSlice"
 
 import {
   persistStore,
