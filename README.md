@@ -17,7 +17,6 @@ This is a **Notes web application** built with **React**, **TypeScript**, **Redu
 - **React-Bootstrap** – Responsive UI components.
 - **React Router** – Navigation between pages.
 - **UUID** – Unique IDs for notes and tags.
-- **Framer Motion (optional)** – Smooth UI animations (if used).
 
 
 ## 🚀 Features
