@@ -1,5 +1,11 @@
 # Notes App
 
+<h1 align="center">
+	<img
+		width="250"
+		alt="Invoicify"
+		src="public/logo.png">
+</h1>
 
 This is a **Notes web application** built with **React**, **TypeScript**, **Redux Toolkit**, and **Bootstrap/React-Bootstrap**, featuring **tag management**, **note creation/editing**, and **persistent storage** using **Redux-Persist**.
 
@@ -11,7 +17,6 @@ This is a **Notes web application** built with **React**, **TypeScript**, **Redu
 - **React-Bootstrap** – Responsive UI components.
 - **React Router** – Navigation between pages.
 - **UUID** – Unique IDs for notes and tags.
-- **Framer Motion (optional)** – Smooth UI animations (if used).
 
 
 ## 🚀 Features
@@ -40,8 +45,7 @@ npm install
 ```bash
 npm run dev
 ```
-4. Open http://localhost:3000
- in your browser.
+
 
 ##  🏷️ Notes About Implementation
 
